@@ -2,15 +2,17 @@
 <html>
 <head>
 	<title>Macao ID Number Checker</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		body {
 			font-family: sans-serif;
 			margin: 0;
 			padding: 0;
+			background-color: #f2f2f2;
 		}
 		h1 {
 			text-align: center;
-			margin-top: 50px;
+			margin-top: 30px;
 			margin-bottom: 20px;
 		}
 		p {
@@ -20,8 +22,9 @@
 		#input-box {
 			display: block;
 			margin: 0 auto;
-			padding: 5px;
-			width: 200px;
+			padding: 10px;
+			width: 90%;
+			max-width: 300px;
 			border: 1px solid #ccc;
 			border-radius: 5px;
 			font-size: 16px;
@@ -49,6 +52,24 @@
 			text-align: center;
 			margin-top: 20px;
 			font-size: 18px;
+		}
+		@media screen and (max-width: 600px) {
+			h1 {
+				margin-top: 20px;
+				margin-bottom: 10px;
+			}
+			#input-box {
+				padding: 8px;
+			}
+			button {
+				margin: 10px auto;
+				padding: 8px 16px;
+				font-size: 14px;
+			}
+			#result {
+				margin-top: 10px;
+				font-size: 16px;
+			}
 		}
 	</style>
 </head>
