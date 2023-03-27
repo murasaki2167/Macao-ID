@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Macao ID Number Checker</title>
+</head>
+<body>
+	<h1>Macao ID Number Checker</h1>
+	<p>Enter your Macao ID number below and click "Check" to see if it is valid:</p>
+	<input type="text" id="input-box" placeholder="Enter your Macao ID number here">
+	<button onclick="checkNumber()">Check</button>
+	<div id="result"></div>
+
+	<script>
+		function checkNumber() {
+			// Get the input value
+			var input = document.getElementById("input-box").value;
+
+			// Convert the input to a string and split it into digits
+			var digits = input.split("").map(Number);
+
+			// Extract the check digit and remove it from the list
+			var checkDigit = digits.pop();
+
+			// Apply the algorithm to the remaining digits
+			for (var i = 0; i < digits.length; i++) {
+				if (i % 2 == 0) {
+					digits[i] *= 2;
+					if (digits[i] > 9) {
+						digits[i] -= 9;
+					}
+				}
+			}
+			var total = digits.reduce((a, b) => a + b, 0);
+
+			// Calculate the expected check digit
+			var expectedCheckDigit = (10 - (total % 10)) % 10;
+
+			// Compare the expected check digit to the actual check digit
+			var result = (checkDigit == expectedCheckDigit ? "valid" : "invalid");
+
+			// Display the result to the user
+			document.getElementById("result").innerHTML = "Your Macao ID number is " + result + ".";
+		}
+	</script>
+</body>
+</html>
